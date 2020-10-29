@@ -1,7 +1,9 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals
-
-__plugin_name__ = "Prusa MMU2S"
-__plugin_version__ = "1.0.0"
-__plugin_description__ = "Recieves messages from MMU2S"
-__plugin_pythoncompat__ = ">=2.7,<4"
+plugin_identifier = "Prusa MMU2S"
+plugin_package = "octoprint_Prusa-MMU2S"
+plugin_name = "OctoPrint-Prusa-MMU2S"
+plugin_version = "1.0.0"
+plugin_description = """For MMU2S"""
+plugin_author = "Zinc-OS"
+plugin_author_email = "louis.sarwal@gmail.com"
+plugin_url = "https://github.com/yourGithubName/Prusa-MMU2S-Octoprint-Plugin"
+plugin_license = "MIT"
