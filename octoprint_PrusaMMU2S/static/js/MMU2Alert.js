@@ -47,6 +47,6 @@ $(function() {
 		// This is the constructor to call for instantiating the plugin
 		MMU2AlertViewModel,
     [],
-    ["#tab_plugin_MMU2Alert"]
+    ["#tab_plugin_MMU2alert"]
 	]);
 });
