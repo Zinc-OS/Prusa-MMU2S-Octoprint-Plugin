@@ -54,7 +54,7 @@ class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin,
         )
          def get_assets(self):
              return dict(
-                 js=["js/MMU2Alert.js"]
+                 js=["js/MMU2alert.js"]
              )
 __plugin_name__ = "MMU2S Announcement Plugin"
 __plugin_pythoncompat__ = ">=2.7,<4"
