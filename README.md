@@ -1,2 +1,2 @@
-# Prusa-MMU2S-Octoprint-Plugin
-Adds messages related to prusa mmu2 for octoprint
+# MMU2 Alert Plugin
+Show messages when the MMU2 throws an error.
