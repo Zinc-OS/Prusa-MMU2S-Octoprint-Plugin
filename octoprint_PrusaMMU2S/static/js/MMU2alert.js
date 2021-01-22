@@ -25,7 +25,7 @@ $(function() {
 					theme = 'success';
 					self.loadQueue();
 					break;
-			
+			}
 			if (data.msg != "") {
 				new PNotify({
 					title: 'MMU2 Alert!',
