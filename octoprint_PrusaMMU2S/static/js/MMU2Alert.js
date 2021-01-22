@@ -8,8 +8,6 @@
 $(function() {
 	function MMU2AlertViewModel() {
 		var self = this;
-		self.params = parameters;
-		self.settings = parameters[0];
 
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
 			if (plugin != "continuousprint") return;
@@ -49,6 +47,6 @@ $(function() {
 		// This is the constructor to call for instantiating the plugin
 		MMU2AlertViewModel,
     [],
-    []
+    ["#tab_plugin_MMU2Alert"]
 	]);
 });
