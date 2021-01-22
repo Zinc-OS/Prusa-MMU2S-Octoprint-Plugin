@@ -17,13 +17,16 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplateP
             self.potentialError=True
             self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="Something may be wrong with the MMU"))
         else if line=="Recv: MMU not responding":
-            self.potentialError=True
             if !self.potentialError:
+                self.potentialError=True
                 self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="Something may be wrong with the MMU"))
             
-        else if potentialError and line =="Recv: echo:busy: paused for user":
-            error= True
-            self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="MMU needs user attention"))
+        else if line =="Recv: echo:busy: paused for user":
+            if potentialError:
+                self.error= True
+                self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="MMU needs user attention"))
+            else:
+                self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="The printer needs user attention"))
         else:
             return
  
