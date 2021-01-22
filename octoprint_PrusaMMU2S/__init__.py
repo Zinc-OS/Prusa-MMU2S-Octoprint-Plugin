@@ -43,4 +43,4 @@ def __plugin_load__():
     __plugin_implementation__ = plugin
 
     global __plugin_hooks__
-    __plugin_hooks__ = {"octoprint.comm.protocol.action": plugin.findMMUerror}
+    __plugin_hooks__ = {"octoprint.comm.protocol.gcode.received": plugin.findMMUerror}
