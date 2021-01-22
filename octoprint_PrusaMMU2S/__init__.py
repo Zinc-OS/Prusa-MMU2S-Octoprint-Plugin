@@ -32,28 +32,28 @@ class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin)
  
 
         self._logger.info("Received \"custom\" action from printer")
-        ##~~ Softwareupdate hook
-        def get_update_information(self):
-            # Define the configuration for your plugin to use with the Software Update
-            # Plugin here. See https://docs.octoprint.org/en/master/bundledplugins/softwareupdate.html
-            # for details.
-            return dict(
-                MMU2Alert=dict(
-                    displayName="MMU2 Alert Plugin",
-                    displayVersion=self._plugin_version,
+    ##~~ Softwareupdate hook
+    def get_update_information(self):
+        # Define the configuration for your plugin to use with the Software Update
+        # Plugin here. See https://docs.octoprint.org/en/master/bundledplugins/softwareupdate.html
+        # for details.
+        return dict(
+            MMU2Alert=dict(
+                displayName="MMU2 Alert Plugin",
+                displayVersion=self._plugin_version,
 
-                    # version check: github repository
-                    type="github_release",
-                    user="Zinc-OS",
-                    repo="Prusa-MMU2S-Octoprint-Plugin",
-                    current=self._plugin_version,
-                    stable_branch=dict(
-                        name="Stable", branch="master", comittish=["master"]
-                    ),
-                    # update method: pip
-                    pip="https://github.com/Zinc-OS/Prusa-MMU2S-Octoprint-Plugin/archive/{target_version}.zip"
-                )
+                # version check: github repository
+                type="github_release",
+                user="Zinc-OS",
+                repo="Prusa-MMU2S-Octoprint-Plugin",
+                current=self._plugin_version,
+                stable_branch=dict(
+                    name="Stable", branch="master", comittish=["master"]
+                ),
+                # update method: pip
+                pip="https://github.com/Zinc-OS/Prusa-MMU2S-Octoprint-Plugin/archive/{target_version}.zip"
             )
+        )
 __plugin_name__ = "MMU2S Announcement Plugin"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
