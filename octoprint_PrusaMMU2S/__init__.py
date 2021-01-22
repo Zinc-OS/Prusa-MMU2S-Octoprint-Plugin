@@ -9,9 +9,7 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplateP
         self.Error=False
         self._logger.info("Plugin Started!")
         hooks = self._plugin_manager.get_hooks("octoprint.comm.transport.serial.factory")
-        if error:
-            self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="MMU needs user attention"))
-    def custom_action_handler(self, comm, line, action, *args, **kwargs):
+    def findMMUerror(self, comm, line, action, *args, **kwargs):
         
         if line == "mmu_get_response - begin move: load":
             self._plugin_manager.send_plugin_message(self._identifier, dict(type="complete", msg="MMU Is loading"))
@@ -28,7 +26,7 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplateP
             self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="MMU needs user attention"))
         else:
             return
-        
+ 
 
         self._logger.info("Received \"custom\" action from printer")
 
@@ -42,4 +40,4 @@ def __plugin_load__():
     __plugin_implementation__ = plugin
 
     global __plugin_hooks__
-    __plugin_hooks__ = {"octoprint.comm.protocol.action": plugin.custom_action_handler}
+    __plugin_hooks__ = {"octoprint.comm.protocol.action": plugin.findMMUerror}
