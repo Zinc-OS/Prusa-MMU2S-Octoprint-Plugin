@@ -6,7 +6,7 @@ from past import basestring
 class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin,octoprint.plugin.AssetPlugin):
     def on_after_startup(self):
         self.potentialError=False
-        self.Error=False
+        self.error=False
         self._logger.info("Plugin Started!")
         hooks = self._plugin_manager.get_hooks("octoprint.comm.transport.serial.factory")
     def findMMUerror(self, comm, line, action, *args, **kwargs):
@@ -22,7 +22,7 @@ class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin,
                 self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="Something may be wrong with the MMU"))
             
         if "echo:busy: paused for user"in line:
-            if potentialError:
+            if potentialError==False:
                 self.error= True
                 self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="MMU needs user attention"))
             else:
@@ -52,10 +52,10 @@ class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin,
                 pip="https://github.com/Zinc-OS/Prusa-MMU2S-Octoprint-Plugin/archive/{target_version}.zip"
             )
         )
-         def get_assets(self):
-             return dict(
-                 js=["js/MMU2alert.js"]
-             )
+    def get_assets(self):
+         return dict(
+             js=["js/MMU2alert.js"]
+         )
 __plugin_name__ = "MMU2S Announcement Plugin"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
