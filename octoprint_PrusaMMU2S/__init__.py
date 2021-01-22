@@ -13,22 +13,20 @@ class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin)
         
         if "mmu_get_response - begin move: load"in line:
             self._plugin_manager.send_plugin_message(self._identifier, dict(type="complete", msg="MMU Is loading"))
-        else if "Recv: mmu_get_response() returning: 0"in line:
+        if "mmu_get_response() returning: 0"in line:
             self.potentialError=True
             self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="Something may be wrong with the MMU"))
-        else if "Recv: MMU not responding" in line:
+        if "MMU not responding" in line:
             if !self.potentialError:
                 self.potentialError=True
                 self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="Something may be wrong with the MMU"))
             
-        else if "Recv: echo:busy: paused for user"in line:
+        if "echo:busy: paused for user"in line:
             if potentialError:
                 self.error= True
                 self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="MMU needs user attention"))
             else:
                 self._plugin_manager.send_plugin_message(self._identifier, dict(type="error", msg="The printer needs user attention"))
-        else:
-            return
  
 
         self._logger.info("Received \"custom\" action from printer")
