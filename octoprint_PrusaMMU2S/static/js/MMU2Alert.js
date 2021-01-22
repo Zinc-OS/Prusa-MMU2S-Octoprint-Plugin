@@ -10,7 +10,7 @@ $(function() {
 		var self = this;
 
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
-			if (plugin != "MMU2Alert") return;
+			if (plugin != "MMU2alert") return;
 
 			var theme = 'info';
 			switch(data["type"]) {
