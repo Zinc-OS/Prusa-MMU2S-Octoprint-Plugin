@@ -10,7 +10,7 @@ $(function() {
 		var self = this;
 
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
-			if (plugin != "continuousprint") return;
+			if (plugin != "MMU2Alert") return;
 
 			var theme = 'info';
 			switch(data["type"]) {
