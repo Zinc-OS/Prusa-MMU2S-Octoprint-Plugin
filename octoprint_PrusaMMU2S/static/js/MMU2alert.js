@@ -6,7 +6,7 @@
  */
 
 $(function() {
-	function MMU2AlertViewModel() {
+	function MMU2alertViewModel() {
 		var self = this;
 
 		self.onDataUpdaterPluginMessage = function(plugin, data) {
@@ -45,7 +45,7 @@ $(function() {
 	// information to the global variable OCTOPRINT_VIEWMODELS
 	OCTOPRINT_VIEWMODELS.push([
 		// This is the constructor to call for instantiating the plugin
-		MMU2AlertViewModel,
+		MMU2alertViewModel,
     [],
     ["#tab_plugin_MMU2alert"]
 	]);
