@@ -30,7 +30,7 @@ $(function() {
 			
 			if (data.msg != "") {
 				new PNotify({
-					title: 'Continuous Print',
+					title: 'MMU2 Alert!',
 					text: data.msg,
 					type: theme,
 					hide: true,
