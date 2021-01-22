@@ -3,7 +3,7 @@ from __future__ import absolute_import, unicode_literals
 
 import octoprint.plugin
 from past import basestring
-class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin):
+class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin,octoprint.plugin.AssetPlugin):
     def on_after_startup(self):
         self.potentialError=False
         self.Error=False
@@ -52,6 +52,10 @@ class MMU2Alerts(octoprint.plugin.StartupPlugin,octoprint.plugin.TemplatePlugin)
                 pip="https://github.com/Zinc-OS/Prusa-MMU2S-Octoprint-Plugin/archive/{target_version}.zip"
             )
         )
+         def get_assets(self):
+         return dict(
+             js=["js/MMU2Alert.js"]
+         )
 __plugin_name__ = "MMU2S Announcement Plugin"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
