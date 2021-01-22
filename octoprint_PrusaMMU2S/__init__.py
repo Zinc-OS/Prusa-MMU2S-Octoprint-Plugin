@@ -58,7 +58,7 @@ __plugin_name__ = "MMU2S Announcement Plugin"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
 def __plugin_load__():
-    plugin = CustomActionCommandPlugin()
+    plugin = MMU2Alerts()
 
     global __plugin_implementation__
     __plugin_implementation__ = plugin
